@@ -6,9 +6,9 @@ const people = google.people("v1");
 
 const oauth2Client = new google.auth.OAuth2(
 
-  "860224633681-ih8t0tvn8biu25kc0a2ticq92odaqm8r.apps.googleusercontent.com",
-  "l_kbvCQDvdmcAN1-hCdgIdlh",
-  "https://contact-g.herokuapp.com/contacts"
+  process.env.REACT_APP_OAUTH_URL,
+  process.env.REACT_APP_API_KEY,
+  process.env.REACT_APP_REDIRECT_URL
 );
 
 google.options({
