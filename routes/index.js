@@ -5,9 +5,9 @@ const { google } = require("googleapis");
 const people = google.people("v1");
 
 const oauth2Client = new google.auth.OAuth2(
-  "860224633681-ih8t0tvn8biu25kc0a2ticq92odaqm8r.apps.googleusercontent.com",
-  "l_kbvCQDvdmcAN1-hCdgIdlh",
-  "https://contact-g.herokuapp.com/contacts"
+  process.env.OAUTH_URL,
+  process.env.API_KEY,
+  process.env.REDIRECT_URL
 );
 
 google.options({
@@ -31,9 +31,9 @@ const url = oauth2Client.generateAuthUrl({
 
 /* GET home page. */
 
-// router.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+router.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // router.get('/contacts', function (req, res) {
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
