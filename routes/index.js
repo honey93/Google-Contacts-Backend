@@ -7,7 +7,7 @@ const people = google.people("v1");
 const oauth2Client = new google.auth.OAuth2(
   "860224633681-ih8t0tvn8biu25kc0a2ticq92odaqm8r.apps.googleusercontent.com",
   "l_kbvCQDvdmcAN1-hCdgIdlh",
-  "http://localhost:3001/contacts"
+  "https://contact-g.herokuapp.com/contacts"
 );
 
 google.options({
@@ -65,7 +65,7 @@ router.get("/token", async function(req, res, next) {
     resourceName: "people/me",
     personFields: "emailAddresses,names,photos"
   });
-  console.log(result.data);
+ // console.log(result.data);
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify({ contacts: connections, myDetails: result.data }));
